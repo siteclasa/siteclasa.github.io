@@ -10,6 +10,7 @@
             color: white;
             font-family: Arial, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -18,15 +19,26 @@
         h1 {
             font-size: 48px;
         }
+        #audioControls {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <h1>IN CURAND!</h1>
 
-    <!-- MP3 file to play without looping -->
-    <audio controls>
-        <source src="song.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    <div id="audioControls">
+        <audio id="backgroundAudio" controls>
+            <source src="song.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('backgroundAudio');
+            audio.volume = 0.5; // Set volume to 50%
+        });
+    </script>
 </body>
 </html>
